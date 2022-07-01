@@ -8,6 +8,43 @@ public class Main {
 	public static void main(String[] args) throws IllegalArgumentException, Exception {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Benvenuto!");
+		boolean valido = true;
+
+		do {
+			System.out.println("L'evento è una conferenza? si/no");
+			String sceltaUtente = scan.nextLine();
+			switch (sceltaUtente) {
+			case "si":
+				// titolo
+				System.out.println("Inserisci il titolo dell'evento: ");
+				String titoloEvento = scan.nextLine();
+				// data
+				System.out.println("Quando vuoi organizzare questo evento?");
+				System.out.println("giorno: ");
+				int giornoEvento = scan.nextInt();
+
+				System.out.println("mese: ");
+				int meseEvento = scan.nextInt();
+
+				System.out.println("anno: ");
+				int annoEvento = scan.nextInt();
+				LocalDate dataEvento = LocalDate.of(annoEvento, meseEvento, giornoEvento);
+				// Argomento
+				System.out.println("Inserisci l'argomento: ");
+				String argomentoInput = scan.nextLine();
+				// Oratore
+				System.out.println("Chi è l'oratore?");
+				System.out.println("Inserisci il nome: ");
+				String nomeOratore = scan.nextLine();
+				System.out.println("Inserisci il cognome: ");
+				String cognomeOratore = scan.nextLine();
+				System.out.println("Inserisci il titolo: ");
+				String titoloOratore = scan.nextLine();
+				Oratore nuovoOratore = new Oratore(nomeOratore, cognomeOratore, titoloOratore);
+				Evento nuovoEventoConferenza = new Evento(titoloOratore, dataEvento, meseEvento, annoEvento);
+			}
+
+		} while (!valido);
 
 		// titolo
 		System.out.println("Inserisci il titolo dell'evento: ");
