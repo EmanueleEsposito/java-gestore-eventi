@@ -52,7 +52,7 @@ public class Evento {
 		return numeroPostiTotali;
 	}
 
-	public int getNumeroPostiPrenotati() {
+	public int getNumeroPostiPrenotati(int postiUtente) {
 		return numeroPostiPrenotati;
 	}
 
@@ -64,17 +64,17 @@ public class Evento {
 	}
 
 	// Metodo prenota
-	public int prenota() throws IllegalArgumentException, Exception {
+	public int prenota(int postiUtente) throws IllegalArgumentException, Exception {
 		validaData(data);
 		if (numeroPostiPrenotati == numeroPostiTotali) {
 			throw new Exception("Ci dispiace ma l'evento non ha più posti disponibili");
 		}
-		return numeroPostiPrenotati + 1;
+		return numeroPostiPrenotati + postiUtente;
 
 	}
 
 	// Metodo disdici
-	public int disdici() throws IllegalArgumentException, Exception {
+	public int disdici(int postiDisdetti) throws IllegalArgumentException, Exception {
 		validaData(data);
 		if (numeroPostiPrenotati == 0) {
 			throw new Exception("Non puoi disdirre perchè non ci sono ancora prenotazioni");
